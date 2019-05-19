@@ -1,0 +1,10 @@
+Tail call elimination (TCE) in the Scala compiler is limited
+to self-recursive methods, but tail calls are otherwise not
+eliminated. This makes functions composed of many smaller
+functions prone to stack overflows. Having a general TCE
+mechanism would be a great benefit in Scala, particularly
+for functional programming. Trampolining is a popular technique [6], which can be used for TCE in languages that don’t
+support it natively. This paper gives an introduction to trampolines in Scala
+and expands on this solution to gain elimination of any method call whatsoever, even calls that are not
+in tail position at all. This obviates altogether the use of the
+call stack in Scala programs.
